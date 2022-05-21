@@ -2,10 +2,23 @@
 
 namespace App\Statics;
 
+use App\Models\User;
+
 class Agenda
 {
     public static function userSubscribedTo($user_id, $course_name)
     {
+        $user = User::find($user_id)->load(['courses']);
+        $result = false;
+        $i = 0;
+        while (!$result && $i <= count($user->courses) - 1) {
+
+            if ($user->courses[$i]->name == $course_name) {
+                $result = true;
+            }
+            $i++;
+        }
+        return $result;
     }
     public static function userAttends($user_id, $lesson_name)
     {

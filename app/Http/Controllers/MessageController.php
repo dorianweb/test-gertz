@@ -16,18 +16,18 @@ class MessageController extends Controller
         //need a view but no time for this
         return Message::find($id);
     }
-}
 
-function test()
-{
-    $user = User::find(2);
-    $lesson = Lesson::find(1);
-    $course = Course::find(2);
-    Agenda::userSubscribedTo($user->id, $course->name);
-    Agenda::userAttends($user->id, $lesson->name);
-    Agenda::userAttendsAll($user->id, $lesson->name);
-    Agenda::userAttendsAtLeast($user->id, $lesson->name);
-    Agenda::authAttends($lesson->name);
-    Agenda::authAttendsAll($lesson->name);
-    Agenda::authAttendsAtLeast($lesson->name);
+    public function tested()
+    {
+        $user = User::find(2);
+        $lesson = Lesson::find(1);
+        $course = Course::find(2);
+        Agenda::userSubscribedTo($user->id, $course->name);
+        Agenda::userAttends($user->id, $lesson->name);
+        Agenda::userAttendsAll($user->id, $lesson->name);
+        Agenda::userAttendsAtLeast($user->id, $lesson->name);
+        Agenda::authAttends($lesson->name);
+        Agenda::authAttendsAll($lesson->name);
+        Agenda::authAttendsAtLeast($lesson->name);
+    }
 }
