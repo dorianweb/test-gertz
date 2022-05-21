@@ -16,7 +16,6 @@ use App\Http\Controllers\MessageController;
 */
 
 Route::get('/', [CommentController::class, 'index'])->name('main');
-Route::get('/axel', [CommentController::class, 'axel'])->name('axel');
-Route::get('/gertz', [CommentController::class, 'gertz'])->name('gertz');
+Route::get('/agenda', [MessageController::class, 'test'])->name('test');
 Route::post('/', [CommentController::class, 'add'])->name('add_comment');
 Route::get('/message/{id}', [MessageController::class, 'show'])->name('message_online');
