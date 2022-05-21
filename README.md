@@ -1,64 +1,108 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Cookbook
 
-## About Laravel
+pour ce projet jai utiliser mailtrap pour tester levoie de mail
+donc se dernier devrait etre fonctionnel
+les commentaire me sont destiner pour eviter de reproduire des erreur bete et decperdre du temp
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+concernant la class a rendre elle se trouveras dans
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+app/statics/agenda.php
+etat : en courss
+base et jeu de donnnee cree plus qu'a ecrire le code
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Installation
 
-## Learning Laravel
+Prerequis :
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+ce petit guide sapplique a windows, pour dautre plateforme voir la documentation
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+2 option soffre a vous sail(docker) ou xampp/wamp(old school)
 
-## Laravel Sponsors
+1.  wamp , xampp composer
+    wamp: https://www.wampserver.com/
+    ou
+    xampp: https://www.apachefriends.org/fr/index.html
+    composer : https://getcomposer.org/download/
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+ou
 
-### Premium Partners
+1.  docker et laravel sail
+    avoir un environnement Docker
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+    1. linux: https://docs.docker.com/engine/install/
 
-## Contributing
+    avoir un environnement Docker/wsl
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+    1. docker (windows uniquement): https://docs.docker.com/desktop/windows/install/
+    1. wsl2 (windows uniquement):https://docs.docker.com/desktop/windows/wsl/
+    1. installer windows terminal : https://www.microsoft.com/store/productId/9N0DX20HK701 1. installer un ubuntu (1..1.):https://www.microsoft.com/store/productId/9N6SVWS3RX71
 
-## Code of Conduct
+    1. installer vscode et remote - wsl
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+2.  clone le projet depuis ce repo:
+    soit avec github desktop sois avec la commandes git clone
 
-## Security Vulnerabilities
+3.  installer les dependances composer :
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+        1. soit avec composer directement installer sur votre machine : composer install
 
-## License
+        2.  soit avec docker :
+        docker run --rm \
+         -u "$(id -u):$(id -g)" \
+         -v $(pwd):/var/www/html \
+         -w /var/www/html \
+         laravelsail/php81-composer:latest \
+         composer install --ignore-platform-reqs
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+4.  Creations des bases de données
+
+            1.(xamp wamp):
+            acceder a votre instance mysql et cree 2 base de donnee:
+              api_fruits
+              test_api_fruit
+
+            2. lancer la creation de vos container mysql et http
+
+            .vendor/bin/sail up -d
+
+            Acceder en root au CLI de mysql
+            et cree la BDD de test
+
+            Create database test_api_fruit;
+
+            grant all on *.* to 'sail'@'%';
+
+            flush privileges;
+
+    en cas de probleme a ce niveau ( probleme de mot de passe ou de nom de bdd la commande
+
+        .vendor/bin/sail down -v
+
+    permet de supprimer les container et surtout effacer les volumes)
+
+5.  Creation de lapplication key
+    via php (wamp,xamp...) :
+
+        php artisan key:generate
+
+    via docker:
+
+        ./vendor/bin/sail artisan key:generate
+
+6.  remplir la bdd
+
+    1.  jouer les migration et les seeder
+
+            xamp,wamp :
+
+                php artisan migrate:fresh --seed
+
+            docker :
+
+                .vendor/bin/sail artisan migrate:fresh --seed
+
+    1.  si une erreur survient
+        1. Cest pas ma faute
+        2. bonne chance et bonne decouverte de laravel et stack overflow
