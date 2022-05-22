@@ -2,21 +2,20 @@
 
 ## Cookbook
 
-pour ce projet jai utiliser mailtrap pour tester levoie de mail
-donc se dernier devrait etre fonctionnel
-les commentaire me sont destiner pour eviter de reproduire des erreur bete et decperdre du temp
+pour ce projet jai utiliser mailtrap pour tester l'envoie de mail
+donc se dernier devrait être fonctionnel
+les commentaires me sont destiner pour eviter de reproduire des erreurs bêtes et de perdre du temps
 
 concernant la class a rendre elle se trouveras dans
 
 app/statics/agenda.php
-etat : en courss
-base et jeu de donnnee cree plus qu'a ecrire le code
+etat : to test
 
 ## Installation
 
 Prerequis :
 
-ce petit guide sapplique a windows, pour dautre plateforme voir la documentation
+ce petit guide s'applique a windows, pour d'autre plateforme voir la documentation
 
 2 option soffre a vous sail(docker) ou xampp/wamp(old school)
 
