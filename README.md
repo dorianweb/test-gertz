@@ -2,11 +2,11 @@
 
 ## Cookbook
 
-pour ce projet jai utiliser mailtrap pour tester l'envoie de mail
-donc se dernier devrait être fonctionnel
-les commentaires me sont destiner pour eviter de reproduire des erreurs bêtes et de perdre du temps
+pour ce projet j'ai utilisé mailtrap pour tester l'envoi de mail
+donc ce dernier devrait être fonctionnel
+les commentaires me sont destinés pour éviter de reproduire des erreurs bêtes et de perdre du temps
 
-concernant la class a rendre elle se trouveras dans
+concernant là class à rendre elle se trouvera dans
 
 app/statics/agenda.php
 etat : to test
