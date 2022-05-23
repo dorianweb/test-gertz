@@ -57,23 +57,9 @@ ou
 
 4.  Creations des bases de données
 
-            1.(xamp wamp):
-            acceder a votre instance mysql et cree 2 base de donnee:
-              api_fruits
-              test_api_fruit
-
-            2. lancer la creation de vos container mysql et http
+            1. lancer la creation de vos container mysql et http
 
             .vendor/bin/sail up -d
-
-            Acceder en root au CLI de mysql
-            et cree la BDD de test
-
-            Create database test_api_fruit;
-
-            grant all on *.* to 'sail'@'%';
-
-            flush privileges;
 
     en cas de probleme a ce niveau ( probleme de mot de passe ou de nom de bdd la commande
 
@@ -83,7 +69,7 @@ ou
 
 5.  Creation de lapplication key
     via php (wamp,xamp...) :
-
+    
         php artisan key:generate
 
     via docker:
